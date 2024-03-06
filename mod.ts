@@ -10,7 +10,7 @@ const enum Flags {
 
 type Computation = Computed<any> | Effect<any>;
 
-/** currently evaluating listener */
+/** @internal currently evaluating listener */
 export let eval_listener: Computation | undefined;
 
 /** pointer for checking existing dependencies in a context */
@@ -585,6 +585,9 @@ export function signal<T>(value?: T): Signal<T | undefined> {
 
 type NoInfer<T extends any> = [T][T extends any ? 0 : never];
 
+/**
+ * The compute function itself.
+ */
 export type ComputedFunction<Prev, Next extends Prev = Prev> = (v: Prev) => Next;
 
 /**
@@ -605,6 +608,9 @@ export function computed<Next extends Prev, Init, Prev>(
 	return new Computed(fn, value);
 }
 
+/**
+ * The effect function itself.
+ */
 export type EffectFunction<Prev, Next extends Prev = Prev> = (v: Prev) => Next;
 
 /**
