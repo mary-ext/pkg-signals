@@ -1,0 +1,20 @@
+{
+	"name": "@mary/signals",
+	"version": "0.1.0",
+	"exports": "./mod.ts",
+	"fmt": {
+		"useTabs": true,
+		"indentWidth": 2,
+		"lineWidth": 110,
+		"semiColons": true,
+		"singleQuote": true
+	},
+	"lint": {
+		"rules": {
+			"exclude": ["no-explicit-any"]
+		}
+	},
+	"publish": {
+		"exclude": [".vscode/"]
+	}
+}
